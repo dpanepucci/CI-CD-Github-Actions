@@ -41,7 +41,7 @@ describe('Quiz Component', () => {
     // Restart the quiz
     cy.get('button').contains('Take New Quiz').click();
 
-    // Verify the quiz is restarted
+    // Verify the quiz is restarted 
     cy.get('.card').should('be.visible');
     cy.get('h2').should('not.be.empty');
   });
