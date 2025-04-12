@@ -31,7 +31,9 @@ jobs:
 
       # Run Build
       - name: Run Build
-        run: npm run render-build && npm run seed
+        run:
+          npm run render-build
+          npm run seed
 
       # Run Cypress component tests
       - name: Run Cypress component tests
