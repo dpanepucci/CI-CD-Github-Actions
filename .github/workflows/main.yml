@@ -24,6 +24,10 @@ jobs:
       - name: 🧰 Install Deps
         run: npm install
 
+      # Run build
+      - name: Run Build
+        run: npm run build
+
       # Start the server
       - name: Start Server
         run: npm start &
@@ -31,10 +35,6 @@ jobs:
       # Wait for the server to be ready
       - name: Wait for Server
         run: sleep 10
-
-      # Run build
-      - name: Run Build
-        run: npm run build
 
       # Run tests
       - name: Run Tests
