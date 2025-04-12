@@ -31,7 +31,7 @@ jobs:
 
       # Run Build
       - name: Run Build
-        run: npm ci && npm run render-build
+        run: npm ci && npm run build
 
       # Run Seed
       - name: Run Seed
