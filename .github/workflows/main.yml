@@ -26,12 +26,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Start the application (if needed)
-      - name: Start application
-        run: npm start &
-        env:
-          CI: true
+      # Run Build
+      - name: Run Build
+        run: npm run render-build
 
       # Run Cypress component tests
       - name: Run Cypress component tests
-        run: npx cypress run --component
+        run: npm run test-component
