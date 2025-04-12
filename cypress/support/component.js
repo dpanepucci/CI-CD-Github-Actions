@@ -1,14 +1,3 @@
-// Add at the top of cypress/support/component.js
-if (!globalThis.crypto) {
-    try {
-      // @ts-ignore
-      globalThis.crypto = require('crypto').webcrypto;
-    } catch (err) {
-      console.warn('⚠️ crypto.webcrypto not available in this Node version.');
-    }
-  }
-  
-
 // ***********************************************************
 // This example support/component.js is processed and
 // loaded automatically before your test files.
