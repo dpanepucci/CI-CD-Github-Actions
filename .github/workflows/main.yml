@@ -1,3 +1,4 @@
+# .github/workflows/main.yml
 # CHECKS PULL REQUEST FROM DEVELOP TO MAIN
 
 name: Cypress Component Tests
@@ -22,9 +23,11 @@ jobs:
         with:
           node-version: '16' # Adjust based on your project's Node.js version
 
-      # Install dependencies
+      # Clean up and install dependencies
       - name: Install dependencies
-        run: npm install
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
 
       # Run Build
       - name: Run Build
