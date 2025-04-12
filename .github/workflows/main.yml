@@ -1,42 +1,42 @@
-# .github/workflows/main.yml
-# CHECKS PULL REQUEST FROM DEVELOP TO MAIN
+# Name of workflow
+name: Lint and Test workflow
 
-name: Cypress Component Tests
-
+# Trigger workflow on all pull requests
 on:
   pull_request:
     branches:
       - develop
+      - staging
 
+# Jobs to carry out
 jobs:
-  cypress-tests:
+  test:
+    # Operating system to run job on
     runs-on: ubuntu-latest
 
+    # Steps in job
     steps:
-      # Checkout the repository
+      # Get code from repo
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v1
 
-      # Set up Node.js
-      - name: Set up Node.js
+      - name: Use Node.js 21.x
         uses: actions/setup-node@v1
         with:
-          node-version: '16' # Adjust based on your project's Node.js version
+          node-version: 21.x
 
-      # Clean up and install dependencies
-      - name: Install dependencies
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install
+      # Install dependencies
+      - name: 🧰 Install Deps
+        run: npm install
+        
+      # Run lint
+      - name: Run Lint
+        run: npm run lint
 
-      # Run Build
+      # Run build
       - name: Run Build
         run: npm run build
 
-      # Run Seed
-      - name: Run Seed
-        run: npm run seed
-
-      # Run Cypress component tests
-      - name: Run Cypress component tests
-        run: npm run test-component
+      # Run tests
+      - name: Run Tests
+        run: npm run test
