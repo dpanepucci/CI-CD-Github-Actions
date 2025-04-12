@@ -5,7 +5,7 @@
   "scripts": {
     "start": "cd server && npm run start",
     "seed": "cd server && npm run seed",
-    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+    "develop": "concurrently \"cd server && ./node_modules/.bin/nodemon dist/server.js\" \"cd client && ./node_modules/.bin/vite\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "concurrently \"cd server && npm run build\" \"cd client && ./node_modules/.bin/vite build\"",
     "render-build": "npm install && npm run build",
